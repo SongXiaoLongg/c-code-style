@@ -900,12 +900,11 @@ if (a) {                    /* If a is true */
 Documented code allows doxygen to parse and general html/pdf/latex output, thus it is very important to do it properly.
 
 - Use doxygen-enabled documentation style for `variables`, `functions` and `structures/enumerations`
-- Always use `\` for doxygen, do not use `@`
 - Always use `5x4` spaces (`5` tabs) offset from beginning of line for text
 ```c
 /**
- * brief Holds pointer to first entry in linked list
- *       Beginning of this text is 5 tabs (20 spaces) from beginning of line
+ * @brief Holds pointer to first entry in linked list
+ *        Beginning of this text is 5 tabs (20 spaces) from beginning of line
  */
 static type_t *list;
 ```
@@ -914,10 +913,10 @@ static type_t *list;
 - Use `12x4 spaces` offset for beginning of comment
 ```c
 /**
- * brief This is point struct
+ * @brief This is point struct
  *
- * note  This structure is used to calculate all point
- *       related stuff
+ * @note  This structure is used to calculate all point
+ *        related stuff
  */
 typedef struct {
     ms_int32_t x;                               /*!< Point X coordinate */
@@ -928,7 +927,7 @@ typedef struct {
 } point_t;
 
 /**
- * brief Point color enumeration
+ * @brief Point color enumeration
  */
 typedef enum {
     COLOR_RED,                                  /*!< Red color. This comment has 12x4
@@ -946,12 +945,12 @@ typedef enum {
 - Use colon `:` between parameter name and its description
 ```c
 /**
- * brief Sum `2` numbers
+ * @brief Sum `2` numbers
  *
- * param[in] a                  First number
- * param[in] b                  Second number
+ * @param[in] a                 First number
+ * @param[in] b                 Second number
  *
- * return Sum of input values
+ * @return Sum of input values
  */
 ms_int32_t sum(ms_int32_t a, ms_int32_t b) 
 {
@@ -959,15 +958,15 @@ ms_int32_t sum(ms_int32_t a, ms_int32_t b)
 }
 
 /**
- * brief Sum `2` numbers and write it to pointer
+ * @brief Sum `2` numbers and write it to pointer
  *
- * note This function does not return value, it stores it to pointer instead
+ * @note This function does not return value, it stores it to pointer instead
  *
- * param[in] a                  First number
- * param[in] b                  Second number
- * param[out] result            Output variable used to save result
+ * @param[in] a                 First number
+ * @param[in] b                 Second number
+ * @param[out] result           Output variable used to save result
  *
- * return N/A
+ * @return N/A
  */
 void void_sum(ms_int32_t a, ms_int32_t b, ms_int32_t *result) 
 {
@@ -978,7 +977,7 @@ void void_sum(ms_int32_t a, ms_int32_t b, ms_int32_t *result)
 - If function returns member of enumeration, use `ref` keyword to specify which one
 ```c
 /**
- * brief My enumeration
+ * @brief My enumeration
  */
 typedef enum {
     MY_ERR,                                     /*!< Error value */
@@ -986,9 +985,9 @@ typedef enum {
 } my_enum_t;
 
 /**
- * brief Check some value
+ * @brief Check some value
  *
- * return \ref MY_OK on success, member of \ref my_enum_t otherwise
+ * @return \ref MY_OK on success, member of \ref my_enum_t otherwise
  */
 my_enum_t check_value(void) 
 {
@@ -999,11 +998,11 @@ my_enum_t check_value(void)
 - Use notation (\`NULL\` => `NULL`) for constants or numbers
 ```c
 /**
- * brief Get data from input array
+ * @brief Get data from input array
  *
- * param[in] in                 Input data
+ * @param[in] in                Input data
  *
- * return Pointer to output data on success, `NULL` otherwise
+ * @return Pointer to output data on success, `NULL` otherwise
  */
 const void *get_data(const void *in) 
 {
@@ -1014,12 +1013,12 @@ const void *get_data(const void *in)
 - Documentation for macros must include `hideinitializer` doxygen command
 ```c
 /**
- * brief Get minimal value between `x` and `y`
+ * @brief Get minimal value between `x` and `y`
  *
- * param[in] x                  First value
- * param[in] y                  Second value
+ * @param[in] x                  First value
+ * @param[in] y                  Second value
  *
- * return Minimal value between `x` and `y`
+ * @return Minimal value between `x` and `y`
  * \hideinitializer
  */
 #define MIN(x, y)       ((x) < (y) ? (x) : (y))
@@ -1032,8 +1031,8 @@ const void *get_data(const void *in)
 - Every file must include doxygen annotation for `file` and `brief` description followed by empty line (when using doxygen)
 ```c
 /**
- * \file            template.h
- * \brief           Template include file
+ * @file            template.h
+ * @brief           Template include file
  */
                     /* Here is empty line */
 ```
@@ -1042,8 +1041,8 @@ const void *get_data(const void *in)
 - Use the same license as already used by project/library
 ```c
 /**
- * \file            template.h
- * \brief           Template include file
+ * @file            template.h
+ * @brief           Template include file
  */
 
 /*
